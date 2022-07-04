@@ -1,7 +1,7 @@
 import React from 'react';
 
-function AddPage() {
-  return <div>AddPage</div>;
+function Addpage() {
+  return <div>Add Page</div>;
 }
 
-export default AddPage;
+export default Addpage;
