@@ -1,8 +1,8 @@
 import { useFormik } from 'formik';
 import React, { useContext } from 'react';
-import { AuthContext } from '../store/AuthContext';
+import { AuthContext } from '../../store/authContext';
 import * as Yup from 'yup';
-import style from './LoginForm.module.scss';
+import style from './loginform.module.css';
 import { useHistory } from 'react-router-dom';
 
 const initValues = {

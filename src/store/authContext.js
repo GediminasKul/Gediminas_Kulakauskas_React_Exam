@@ -1,44 +1,39 @@
-import { useContext, useState } from 'react';
-import { createContext } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 export const AuthContext = createContext({
   login() {},
   logout() {},
   isUserLoggedIn: '',
-  token: null,
-  userEmail: '',
 });
 
 AuthContext.displayName = 'AuthContext';
 
-const AuthProvider = ({ children }) => {
-  const [token, setToken] = useState(localStorage.getItem('token'));
-  const [userEmail, setUserEmail] = useState('');
+function AuthProvider(props) {
+  const [token, setToken] = useState(localStorage.getItem('token-React'));
 
-  const login = (receivedToken, receivedEmail) => {
-    setToken(receivedToken);
-    setUserEmail(receivedEmail);
-    localStorage.setItem('token', receivedToken);
-    console.log('receivedEmail ===', receivedEmail);
-  };
-  const logout = () => {
+  const isUserLoggedIn = !!token;
+
+  function login(userToken) {
+    setToken(userToken);
+    localStorage.setItem('token-React', userToken);
+  }
+  function logout() {
     setToken(null);
-    setUserEmail(null);
-    localStorage.removeItem('token');
-  };
+    localStorage.removeItem('token-React');
+  }
 
   const ctx = {
     login,
     logout,
-    isUserLoggedIn: !!token,
-    token,
-    userEmail,
+    isUserLoggedIn,
   };
-  return <AuthContext.Provider value={ctx}>{children}</AuthContext.Provider>;
-};
+  return (
+    <AuthContext.Provider value={ctx}>{props.children}</AuthContext.Provider>
+  );
+}
 
 export default AuthProvider;
 
-export const useAuthCtx = () => {
+export function useAuthCtx() {
   return useContext(AuthContext);
-};
+}

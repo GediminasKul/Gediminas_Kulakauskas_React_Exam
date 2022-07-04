@@ -12,25 +12,23 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Router>
-        <Switch>
-          <Route path={'/register'}>
-            <Registerpage />
-          </Route>
-          <Route path={'/login'}>
-            <Loginpage />
-          </Route>
-          <ProtectedRoute path={'/add'}>
-            <Addpage />
-          </ProtectedRoute>
-          <ProtectedRoute exact path={'/'}>
-            <Homepage />
-          </ProtectedRoute>
-          <Route path={'*'}>
-            <h2>Page not found.</h2>
-          </Route>
-        </Switch>
-      </Router>
+      <Switch>
+        <Route path={'/register'}>
+          <Registerpage />
+        </Route>
+        <Route path={'/login'}>
+          <Loginpage />
+        </Route>
+        <ProtectedRoute path={'/add'}>
+          <Addpage />
+        </ProtectedRoute>
+        <ProtectedRoute exact path={'/'}>
+          <Homepage />
+        </ProtectedRoute>
+        <Route path={'*'}>
+          <h2>Page not found.</h2>
+        </Route>
+      </Switch>
     </div>
   );
 }
