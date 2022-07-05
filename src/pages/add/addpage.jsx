@@ -1,7 +1,12 @@
 import React from 'react';
+import AddForm from '../../components/addform/addform';
 
-function Addpage() {
-  return <div>Add Page</div>;
+function Add() {
+  return (
+    <div>
+      <AddForm />
+    </div>
+  );
 }
 
-export default Addpage;
+export default Add;

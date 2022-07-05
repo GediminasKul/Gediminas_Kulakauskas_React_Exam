@@ -14,8 +14,10 @@ function ProtectedRoute(props) {
       ) : (
         <div className="container">
           <h2>Please login</h2>
-          <div className="alert alert-danger">You are not logged in!!!</div>
-          <Link to={'/login'}>Login here 🌏</Link>
+          <div className="alert alert-danger">
+            In order to see the content, please log-in first.
+          </div>
+          <Link to={'/login'}>Click here to login.</Link>
         </div>
       )}
     </Route>
