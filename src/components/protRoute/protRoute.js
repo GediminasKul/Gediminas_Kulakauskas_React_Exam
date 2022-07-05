@@ -1,23 +1,24 @@
-import { Link, Route, Router } from 'react-router-dom';
-import { useAuthCtx } from '../../store/authContext';
-import css from './protRoute.module.css';
+import { useContext } from 'react';
+import { Route } from 'react-router';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../store/authContext';
 
 function ProtectedRoute(props) {
-  const { isUserLoggedIn } = useAuthCtx();
+  const { isUserLoggedIn } = useContext(AuthContext);
   const { children, ...rest } = props;
+
   return (
-    <Router>
-      <Route {...rest}>
-        {isUserLoggedIn ? (
-          children
-        ) : (
-          <div className={css['protected-container']}>
-            <h2>Please login</h2>
-            <Link to={'/login'}>Login here</Link>
-          </div>
-        )}
-      </Route>
-    </Router>
+    <Route {...rest}>
+      {isUserLoggedIn ? (
+        children
+      ) : (
+        <div className="container">
+          <h2>Please login</h2>
+          <div className="alert alert-danger">You are not logged in!!!</div>
+          <Link to={'/login'}>Login here 🌏</Link>
+        </div>
+      )}
+    </Route>
   );
 }
 

@@ -1,5 +1,6 @@
 import './App.css';
-import { Route, Switch, Router } from 'react-router';
+import { Route, Switch } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
 
 import Addpage from './pages/add/addpage';
 import Homepage from './pages/home/homepage';
@@ -12,23 +13,25 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Switch>
-        <Route path={'/register'}>
-          <Registerpage />
-        </Route>
-        <Route path={'/login'}>
-          <Loginpage />
-        </Route>
-        <ProtectedRoute path={'/add'}>
-          <Addpage />
-        </ProtectedRoute>
-        <ProtectedRoute exact path={'/'}>
-          <Homepage />
-        </ProtectedRoute>
-        <Route path={'*'}>
-          <h2>Page not found.</h2>
-        </Route>
-      </Switch>
+      <BrowserRouter>
+        <Switch>
+          <Route path={'/register'}>
+            <Registerpage />
+          </Route>
+          <Route path={'/login'}>
+            <Loginpage />
+          </Route>
+          <ProtectedRoute path={'/add'}>
+            <Addpage />
+          </ProtectedRoute>
+          <ProtectedRoute exact path={'/home'}>
+            <Homepage />
+          </ProtectedRoute>
+          <Route path={'*'}>
+            <h2>Page not found.</h2>
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
