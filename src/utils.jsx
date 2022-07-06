@@ -46,6 +46,7 @@ export async function getFetchAuth(url, token) {
   }
 }
 
-export const baseUrl = process.env.BASE_URL;
+export const baseUrl = process.env.REACT_APP_BASE_URL;
 
-// if (!baseUrl) throw new Error('baseUrl nerastas');
+console.log(process.env.BASE_URL);
+if (!baseUrl) throw new Error('baseUrl not found');
