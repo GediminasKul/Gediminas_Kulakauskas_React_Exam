@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import React from 'react';
 import * as Yup from 'yup';
 import { baseUrl, myFetchAuth } from '../../utils';
-import { useAuthCtx } from '../../store/authContext';
+// import { useAuthCtx } from '../../store/authContext';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 // ----------------------------------------------
@@ -14,7 +14,7 @@ const initValues = {
 };
 
 function AddForm() {
-  const { token } = useAuthCtx();
+  // const { token } = useAuthCtx();
   const history = useHistory();
   const [error, SetError] = useState('');
   const formik = useFormik({
@@ -28,19 +28,12 @@ function AddForm() {
         title: values.title,
         description: values.description,
       };
+      const token = localStorage.getItem('token');
       SetError('');
       const fetchResult = await myFetchAuth(
         `${baseUrl}v1/content/skills`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(newPost),
-        }
-        // token,
-        // values
+        token,
+        newPost
       );
       console.log('fetchResult ===', fetchResult);
       if (fetchResult.error) {

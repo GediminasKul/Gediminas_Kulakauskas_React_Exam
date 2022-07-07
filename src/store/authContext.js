@@ -26,6 +26,7 @@ function AuthProvider(props) {
     login,
     logout,
     isUserLoggedIn,
+    token,
   };
   return (
     <AuthContext.Provider value={ctx}>{props.children}</AuthContext.Provider>

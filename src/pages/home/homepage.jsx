@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAuthCtx } from '../../store/authContext';
 import { NavLink, useHistory } from 'react-router-dom';
-import { baseUrl, myFetchAuth } from '../../utils';
+import { baseUrl, getFetchAuth } from '../../utils';
 import Card from '../../components/card/card';
 import css from './homepage.module.css';
 
@@ -12,10 +12,10 @@ function Homepage() {
   const [skills, setSkills] = useState('');
 
   const getSkills = async (values) => {
-    const fetchResult = await myFetchAuth(
+    const fetchResult = await getFetchAuth(
       `${baseUrl}v1/content/skills`,
-      'GET',
       token,
+      'GET',
       values
     );
 
