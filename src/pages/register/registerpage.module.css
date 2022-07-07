@@ -1,0 +1,7 @@
+.containerRegister {
+  display: flex;
+  margin: 0 auto;
+  max-width: 40%;
+  align-items: center;
+  justify-content: center;
+}

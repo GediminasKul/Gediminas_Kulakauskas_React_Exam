@@ -1,32 +1,32 @@
 import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../store/authContext';
-import style from './header.module.css';
+import css from './header.module.css';
 
 function Header() {
   const { isUserLoggedIn, logout } = useContext(AuthContext);
 
   return (
-    <header className={style.main}>
-      <div className={style.header}>
+    <header className={css.main}>
+      <div className={css.header}>
         <div>
           <img
             src="https://toppng.com/uploads/preview/instagram-logo-11545512111t0928udues.png"
             alt="logo"
-            className={style.logo}
+            className={css.logo}
           />
         </div>
-        <Link className={style.navLink} to="/"></Link>
+        <Link className={css.navLink} to="/"></Link>
         <nav>
           {isUserLoggedIn ? (
             <>
-              <NavLink className={style.navLink} to="/">
+              <NavLink className={css.navLink} to="/">
                 Home
               </NavLink>
-              <NavLink className={style.navLink} to="/add">
+              <NavLink className={css.navLink} to="/add">
                 Add
               </NavLink>
-              <NavLink className={style.navLink} to="/login" onClick={logout}>
+              <NavLink className={css.navLink} to="/login" onClick={logout}>
                 Logout
               </NavLink>
             </>
@@ -35,10 +35,10 @@ function Header() {
           )}
           {!isUserLoggedIn ? (
             <>
-              <NavLink className={style.navLink} to="/register">
+              <NavLink className={css.navLink} to="/register">
                 Register
               </NavLink>
-              <NavLink className={style.navLink} to="/login">
+              <NavLink className={css.navLink} to="/login">
                 Login
               </NavLink>
             </>

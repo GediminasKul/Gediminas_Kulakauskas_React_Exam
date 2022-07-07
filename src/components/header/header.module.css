@@ -8,6 +8,9 @@
   background-color: rgb(243, 244, 244);
   align-items: center;
   max-height: 38px;
+  border-bottom: 0.5px solid #aeaeae;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16);
+  margin-bottom: 6rem;
 }
 
 .navLink {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import LoginForm from '../../components/loginform/loginform';
+import css from './loginpage.module.css';
 
 function Login() {
   const history = useHistory();
@@ -8,8 +9,7 @@ function Login() {
     history.replace('/home');
   }
   return (
-    <div>
-      <h1>Login</h1>
+    <div className={css.containerLogin}>
       <LoginForm onSuccessLogin={handleSuccessLogin} />
     </div>
   );
