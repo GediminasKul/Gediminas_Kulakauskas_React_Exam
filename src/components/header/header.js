@@ -9,6 +9,13 @@ function Header() {
   return (
     <header className={style.main}>
       <div className={style.header}>
+        <div>
+          <img
+            src="https://toppng.com/uploads/preview/instagram-logo-11545512111t0928udues.png"
+            alt="logo"
+            className={style.logo}
+          />
+        </div>
         <Link className={style.navLink} to="/"></Link>
         <nav>
           {isUserLoggedIn ? (

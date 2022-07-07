@@ -14,8 +14,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Routes>
-        {/* <Switch> */}
+      {/* <Routes> */}
+      <Switch>
         <Route path={'/register'}>
           <Registerpage />
         </Route>
@@ -31,8 +31,8 @@ function App() {
         <Route path={'*'}>
           <h2>Page not found.</h2>
         </Route>
-        {/* </Switch> */}
-      </Routes>
+      </Switch>
+      {/* </Routes> */}
     </div>
   );
 }
