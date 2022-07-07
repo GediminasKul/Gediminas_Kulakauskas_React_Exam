@@ -1,6 +1,6 @@
 .card {
-  box-shadow: 0.2rem 0.5em 0.9rem grey;
-  margin: 1rem;
-  padding: 1rem;
+  margin: 0.7rem;
+  padding: 0.7rem;
   max-width: -webkit-fill-available;
+  box-shadow: 0.2rem 0.5em 0.9rem rgb(251, 137, 234);
 }

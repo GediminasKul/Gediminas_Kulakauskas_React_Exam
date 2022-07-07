@@ -8,7 +8,7 @@ import css from './homepage.module.css';
 function Homepage() {
   const history = useHistory();
   const { token } = useAuthCtx();
-  // if (!token) history.push('/login');
+  if (!token) history.push('/login');
   const [skills, setSkills] = useState('');
 
   const getSkills = async (values) => {
