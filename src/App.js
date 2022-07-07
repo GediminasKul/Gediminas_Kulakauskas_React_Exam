@@ -9,11 +9,12 @@ import Registerpage from './pages/register/registerpage';
 import Header from './components/header/header';
 import ProtectedRoute from './components/protRoute/protRoute';
 import Notfoundpage from './pages/notfound/notfound';
-import { Routes } from 'react-router';
+import Footer from '../src/components/footer/footer';
+import css from './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className={css.App}>
       <Header />
       {/* <Routes> */}
       <Switch>
@@ -33,6 +34,7 @@ function App() {
           <Notfoundpage />
         </Route>
       </Switch>
+      <Footer />
       {/* </Routes> */}
     </div>
   );

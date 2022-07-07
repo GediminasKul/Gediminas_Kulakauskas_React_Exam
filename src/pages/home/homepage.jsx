@@ -30,10 +30,9 @@ function Homepage() {
 
   return (
     <div className={css['cards-container']}>
-      <h1 className={css['title']}>Home Page</h1>
       <div className={css['cards-output']}>
         {!Array.isArray(skills) ? (
-          <h2 className={css['loading']}>Loading...</h2>
+          <h2 className={css['loading']}>Loading the content...</h2>
         ) : skills.length === 0 ? (
           <div className={css['add-skills-error']}>
             <h2 className={css['skills-error']}>

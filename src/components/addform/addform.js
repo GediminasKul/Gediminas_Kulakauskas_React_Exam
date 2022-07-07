@@ -54,7 +54,7 @@ function AddForm() {
   });
   return (
     <form className={css.form} onSubmit={formik.handleSubmit}>
-      <h1 className={css.title}>Add skills</h1>
+      <h1 className={css.title}>Add skills!</h1>
 
       <label className={css.label}>
         <span className={css.span}>Title</span>
