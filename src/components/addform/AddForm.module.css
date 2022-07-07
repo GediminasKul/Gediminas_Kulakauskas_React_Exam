@@ -12,25 +12,15 @@
 } */
 
 .btn {
-  /* border: none;
-   color: rgb(33, 27, 27);
-   padding: 0.4em 0.8em;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   border-radius: 4px;
-   cursor: pointer;
-   margin-top: 25px; */
   display: block;
   margin: 0 auto;
-  width: 260px;
-  height: 36px;
-  border-radius: 30px;
-  color: #fff;
-  font-size: 15px;
+  width: 180px;
+  height: 32px;
+  border-radius: 18px;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
   cursor: pointer;
-  background-color: rgb(252, 198, 134);
+  background-color: rgb(249, 178, 240);
   /* margin-bottom: 5px; */
 }
 .title {

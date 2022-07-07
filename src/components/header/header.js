@@ -21,7 +21,10 @@ function Header() {
           {isUserLoggedIn ? (
             <>
               <NavLink className={style.navLink} to="/">
-                Posts
+                Home
+              </NavLink>
+              <NavLink className={style.navLink} to="/add">
+                Add
               </NavLink>
               <NavLink className={style.navLink} to="/login" onClick={logout}>
                 Logout

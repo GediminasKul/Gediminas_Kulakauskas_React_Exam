@@ -30,7 +30,7 @@ function LoginForm() {
       if (loginResult.msg === 'Successfully logged in') {
         alert('Login successfull!');
         ctx.login(loginResult.token, values.email);
-        history.replace('/home');
+        history.replace('/');
       }
       if (!loginResult.token) {
         alert('Login failed!');

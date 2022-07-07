@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import css from '';
+import css from './notfound.module.css';
 
-function NotFoundPage() {
+function Notfoundpage() {
   return (
     <div className={css['not-found-container']}>
       <h1>Not found 404</h1>
@@ -11,4 +11,4 @@ function NotFoundPage() {
   );
 }
 
-export default NotFoundPage;
+export default Notfoundpage;

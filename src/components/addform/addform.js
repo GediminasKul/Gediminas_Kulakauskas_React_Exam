@@ -1,12 +1,12 @@
 import css from './AddForm.module.css';
 import { useFormik } from 'formik';
 import React from 'react';
-
 import * as Yup from 'yup';
 import { baseUrl, myFetchAuth } from '../../utils';
 import { useAuthCtx } from '../../store/authContext';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+// ----------------------------------------------
 
 const initValues = {
   title: '',
@@ -20,18 +20,27 @@ function AddForm() {
   const formik = useFormik({
     initialValues: initValues,
     validationSchema: Yup.object({
-      title: Yup.string().min(4, 'Maziausiai 4 simboliai').max(10).required(),
-      description: Yup.string()
-        .min(4, 'Maziausiai 4 simboliai')
-        .max(50)
-        .required(),
+      title: Yup.string().min(4, 'Minimum 4 symbols.').max(10).required(),
+      description: Yup.string().min(4, 'Minimum 4 symbols.').max(50).required(),
     }),
     onSubmit: async (values) => {
+      const newPost = {
+        title: values.title,
+        description: values.description,
+      };
       SetError('');
       const fetchResult = await myFetchAuth(
-        `${baseUrl}/content/skills`,
-        token,
-        values
+        `${baseUrl}v1/content/skills`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(newPost),
+        }
+        // token,
+        // values
       );
       console.log('fetchResult ===', fetchResult);
       if (fetchResult.error) {
@@ -40,7 +49,7 @@ function AddForm() {
         return;
       }
 
-      history.push('/home');
+      history.push('/');
     },
   });
   return (
@@ -78,10 +87,7 @@ function AddForm() {
           name="description"
         />
       </label>
-      {/* <input className={css.input} type='email' />
-      <input className={css.input} type='password' /> */}
       <p className={css.errorMsg}>{formik.errors.description}</p>
-      {/* <p className={css.forgot_pass}>Forgot password?</p> */}
       {error && <p className={css.errorMsg}>{error}</p>}
       <button className={css.btn} type="submit">
         Add

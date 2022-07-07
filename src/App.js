@@ -8,6 +8,7 @@ import Loginpage from './pages/login/loginpage';
 import Registerpage from './pages/register/registerpage';
 import Header from './components/header/header';
 import ProtectedRoute from './components/protRoute/protRoute';
+import Notfoundpage from './pages/notfound/notfound';
 import { Routes } from 'react-router';
 
 function App() {
@@ -25,11 +26,11 @@ function App() {
         <ProtectedRoute path={'/add'}>
           <Addpage />
         </ProtectedRoute>
-        <ProtectedRoute exact path={'/home'}>
+        <ProtectedRoute exact path={'/'}>
           <Homepage />
         </ProtectedRoute>
         <Route path={'*'}>
-          <h2>Page not found.</h2>
+          <Notfoundpage />
         </Route>
       </Switch>
       {/* </Routes> */}

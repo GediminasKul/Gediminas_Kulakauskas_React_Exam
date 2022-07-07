@@ -1,4 +1,4 @@
-import css from './Card.module.css';
+import css from './card.module.css';
 
 function Card(props) {
   return (
